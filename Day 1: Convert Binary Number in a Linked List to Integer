@@ -1,0 +1,19 @@
+// As we nevigate in the Linked List we need to update our computation.
+// At each step we will get 1 or 0. For each computation we cand do:
+// ans= ans*2; shifting the value left and
+// ans= ans + pointer->val;
+// Both step can be optimized and represented as:
+// ans= ans<<1 | pointer->val;
+//
+
+class Solution {
+public:
+    int getDecimalValue(ListNode* head) {
+        int ans=0;
+        while(head!=NULL) {
+            ans=ans<<1|head->val;
+            head=head->next;
+        }
+        return ans;
+    }
+};
